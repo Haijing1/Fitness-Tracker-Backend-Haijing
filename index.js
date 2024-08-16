@@ -5,14 +5,13 @@ const app = express();
 
 const PORT = process.env.PORT || 5050;
 
-import upperBodyRoutes from "./routes/upperBodyRoutes.js";
-import lowerBodyRoutes from "./routes/lowerBodyRoutes.js";
+import workoutRoutes from "./routes/workoutRoutes.js";
 
 app.use(express.json());
 app.use(cors());
 
-app.use("/workout/upperBodyRoutes", upperBodyRoutes);
-app.use("/workout/lowerBodyRoutes", lowerBodyRoutes);
+app.use("/workout", workoutRoutes);
+
 
 // basic home route
 app.get("/", (_req, res) => {
