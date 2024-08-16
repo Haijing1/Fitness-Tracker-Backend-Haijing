@@ -29,17 +29,10 @@ router.get("/:date", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    const date = new Date();
-    const day = date.getDate();
-    const month = date.getMonth() + 1; // The month index starts from 0
-    const year = date.getFullYear();
-    const currentDate = `${day}-${month}-${year}`;
-
     const newExercise = {
         id: uuid(),
         timeStamp: new Date(),
-        date: currentDate,
-        // date: req.body.date,
+        date: req.body.date,
         workout: [
             {
                 id: uuid(),
@@ -61,11 +54,5 @@ router.post("/", (req, res) => {
     fs.writeFileSync("./data/workout.json", JSON.stringify(workoutData));
     res.send(200);
 })
-
-
-//     videos.push(newVideo);
-//         fs.writeFileSync("./data/videos.json", JSON.stringify(videos));
-//         res.send(videos)
-//     });
 
 export default router;
