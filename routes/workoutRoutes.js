@@ -20,6 +20,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:date", (req, res) => {
+    const workoutBuffer = fs.readFileSync("./data/workout.json");
+    const workoutData = JSON.parse(workoutBuffer);
     const foundDate = workoutData.filter((currentWorkout) => {
         return currentWorkout.date === req.params.date;
     });
@@ -103,63 +105,66 @@ router.post("/", (req, res) => {
 
 
 
-// router.post("/", (req, res) => {
-//     const filterData = workoutData.filter((currentData) => {
-//         return currentData.date === req.body.date;
-//     });
+router.post("/:date/add-exercise", (req, res) => {
+    const workoutBuffer = fs.readFileSync("./data/workout.json");
+    const workoutData = JSON.parse(workoutBuffer);
+    const filterData = workoutData.filter((currentData) => {
+        return currentData.date === req.body.date;
+    });
 
-//     // const filterWorkout = filterData.find((currentWorkout) => {
-//     //     return currentWorkout.date === req.body.exercise;
-//     // });
+    // const filterWorkout = filterData.find((currentWorkout) => {
+    //     return currentWorkout.date === req.body.exercise;
+    // });
 
-//     if (filterData) {
-//         console.log(filterData)
-//         const newExercise = [
-//             {
-//                 id: uuid(),
-//                 exercise: req.body.exercise,
-//                 sets: [{
-//                     id: uuid(),
-//                     setNumber: req.body.setNumber,
-//                     reps: req.body.reps,
-//                     weight: req.body.weight,
-//                     rest: req.body.rest,
-//                     note: req.body.note
-//                 }]
-//             }]
-//         // const workoutBuffer = fs.readFileSync("./data/workout.json");
-//         // const workoutData = JSON.parse(workoutBuffer);
-//         filterData.workout.push(newExercise);
-//         fs.writeFileSync("./data/workout.json", JSON.stringify(filterData));
-//         res.send(200);
-//     }
-//     // else {
-//     //     const newExercise = {
-//     //         id: uuid(),
-//     //         timeStamp: new Date(),
-//     //         // date: currentDate,
-//     //         date: req.body.date,
-//     //         workout: [
-//     //             {
-//     //                 id: uuid(),
-//     //                 exercise: req.body.exercise,
-//     //                 sets: [
-//     //                     {
-//     //                         id: uuid(),
-//     //                         setNumber: req.body.setNumber,
-//     //                         reps: req.body.reps,
-//     //                         weight: req.body.weight,
-//     //                         rest: req.body.rest,
-//     //                         note: req.body.note
-//     //                     }]
-//     //             }]
-//     //     }
-//     //     // const workoutBuffer = fs.readFileSync("./data/workout.json");
-//     //     // const workoutData = JSON.parse(workoutBuffer);
-//     //     workoutData.push(newExercise);
-//     //     fs.writeFileSync("./data/workout.json", JSON.stringify(workoutData));
-//     //     res.send(200);
-//     // }
-// })
+    if (filterData) {
+        console.log(filterData)
+        const newExercise = [
+            {
+                id: uuid(),
+                exercise: req.body.exercise,
+                sets: [{
+                    id: uuid(),
+                    setNumber: req.body.setNumber,
+                    reps: req.body.reps,
+                    weight: req.body.weight,
+                    rest: req.body.rest,
+                    note: req.body.note
+                }]
+            }]
+        // const workoutBuffer = fs.readFileSync("./data/workout.json");
+        // const workoutData = JSON.parse(workoutBuffer);
+
+        filterData.push(newExercise);
+        fs.writeFileSync("./data/workout.json", JSON.stringify(filterData));
+        // res.send(200);
+    }
+    //     // else {
+    //     //     const newExercise = {
+    //     //         id: uuid(),
+    //     //         timeStamp: new Date(),
+    //     //         // date: currentDate,
+    //     //         date: req.body.date,
+    //     //         workout: [
+    //     //             {
+    //     //                 id: uuid(),
+    //     //                 exercise: req.body.exercise,
+    //     //                 sets: [
+    //     //                     {
+    //     //                         id: uuid(),
+    //     //                         setNumber: req.body.setNumber,
+    //     //                         reps: req.body.reps,
+    //     //                         weight: req.body.weight,
+    //     //                         rest: req.body.rest,
+    //     //                         note: req.body.note
+    //     //                     }]
+    //     //             }]
+    //     //     }
+    //     //     // const workoutBuffer = fs.readFileSync("./data/workout.json");
+    //     //     // const workoutData = JSON.parse(workoutBuffer);
+    //     //     workoutData.push(newExercise);
+    //     //     fs.writeFileSync("./data/workout.json", JSON.stringify(workoutData));
+    //     //     res.send(200);
+    // }
+})
 
 export default router;
