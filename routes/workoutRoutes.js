@@ -39,6 +39,7 @@ router.post("/", (req, res) => {
         id: uuid(),
         timeStamp: new Date(),
         date: currentDate,
+        // date: req.body.date,
         workout: [
             {
                 id: uuid(),
