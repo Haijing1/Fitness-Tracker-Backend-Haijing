@@ -10,7 +10,7 @@ import workoutRoutes from "./routes/workoutRoutes.js";
 app.use(express.json());
 app.use(cors());
 
-app.use("/workout", workoutRoutes);
+app.use("/api", workoutRoutes);
 
 
 // basic home route
