@@ -1,20 +1,20 @@
 [
     {
-        "id": "7eb112d7-37e0-4ef6-b96c-9612559e039a",
-        "timeStamp": "2024-08-15T23:29:27.482Z",
-        "date": "15-8-2024",
+        "id": "0d044924-0fff-4b1c-b358-c8104f1a3ab1",
+        "timeStamp": "2024-08-16T04:13:56.141Z",
+        "date": " 15-8-2024",
         "workout": [
             {
-                "id": "504a2f50-8ec5-41a8-9b2c-ced228791c21",
-                "exercise": "1",
+                "id": "a9eba124-0d90-49fb-9ae9-5ea0e99e2900",
+                "exercise": "Pull up",
                 "sets": [
                     {
-                        "id": "71db1fea-59d3-4eb2-99e2-aeac01380d8a",
-                        "setNumber": "1",
-                        "reps": "d",
-                        "weight": "s",
-                        "rest": "f",
-                        "note": "f"
+                        "id": "4d825a71-c879-4f96-ac90-7112a2144a71",
+                        "setNumber": "40",
+                        "reps": "20",
+                        "weight": "20",
+                        "rest": "20",
+                        "note": ""
                     }
                 ]
             }

@@ -29,16 +29,16 @@ router.get("/:date", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    const date = new Date();
-    const day = date.getDate();
-    const month = date.getMonth() + 1; // The month index starts from 0
-    const year = date.getFullYear();
-    const currentDate = `${day}-${month}-${year}`;
+    // const date = new Date();
+    // const day = date.getDate();
+    // const month = date.getMonth() + 1; // The month index starts from 0
+    // const year = date.getFullYear();
+    // const currentDate = `${day}-${month}-${year}`;
 
     const newExercise = {
         id: uuid(),
         timeStamp: new Date(),
-        date: currentDate,
+        date: req.body.date,
         workout: [
             {
                 id: uuid(),
