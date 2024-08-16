@@ -31,49 +31,20 @@ router.get("/:date", (req, res) => {
     return res.json(foundDate);
 });
 
-// router.post("/:date/workout", (req, res) => {
-//     const foundDate = workoutData.filter((currentWorkout) => {
-//         return currentWorkout.date === req.params.date;
-//     });
-
-//     const newWorkout = {
-//         id: uuid(),
-//         setNumber: req.body.setNumber,
-//         reps: req.body.reps,
-//         weight: req.body.weight,
-//         rest: req.body.rest,
-//         note: req.body.note
-//     }
-
-//     foundDate.workout.push(newWorkout);
-
-//     // if (!foundDate) {
-//     //     res.status(404).send("Compliment not found the id")
-//     // }
-
-//     // fs.writeFileSync("./data/videos.json", JSON.stringify(workoutData));
-//     // res.send(foundDate);
-// });
-// router.post("/:date", (req, res) => {
-//     // res.send(200);
-// const date = new Date();
-// const day = date.getDate();
-// const month = date.getMonth() + 1; // The month index starts from 0
-// const year = date.getFullYear();
-// const currentDate = `${day}-${month}-${year}`;
-//     const newData = {
-//         id: uuid(),
-//         timeStamp: new Date(),
-//         date: currentDate}
-
-//     // const workoutBuffer = fs.readFileSync("./data/workout.json");
-//     // const workoutData = JSON.parse(workoutBuffer);
-//     // const filterData = workoutData.filter((currentWorkout) => {
-//     //     return currentWorkout.date === req.params.date;
-//     // });
-//     return res.json(filterData);
-// });
-
+router.get("/exercise", (req, res) => {
+    const workoutBuffer = fs.readFileSync("./data/workout.json");
+    const workoutData = JSON.parse(workoutBuffer);
+    // console.log(req.body.dateId)
+    // console.log(req.body.exerciseId)
+    const filterWorkout = workoutData.filter((currentDate) => {
+        return currentDate.id === req.body.dateId;
+    });
+    // console.log(filterWorkout)
+    const filterExercise = filterWorkout[0].workout.filter((currentExercise) => {
+        return currentExercise.id === req.body.exerciseId;
+    });
+    // filterExercise[0].exercise
+});
 
 router.post("/", (req, res) => {
     const newExercise = {
@@ -111,7 +82,7 @@ router.post("/:date/workout", (req, res) => {
     });
 
     if (filterData) {
-        console.log(filterData)
+        // console.log(filterData[0])
         const newExercise =
         {
             id: uuid(),
@@ -134,7 +105,7 @@ router.post("/:date/workout", (req, res) => {
 
             }
         })
-        console.log(workoutData)
+        // console.log(workoutData)
         fs.writeFileSync("./data/workout.json", JSON.stringify(workoutData));
         return res.send(200);
     }
@@ -143,16 +114,16 @@ router.post("/:date/workout", (req, res) => {
 router.post("/addset", (req, res) => {
     const workoutBuffer = fs.readFileSync("./data/workout.json");
     const workoutData = JSON.parse(workoutBuffer);
-    console.log(req.body.dateId)
-    console.log(req.body.exerciseId)
+    // console.log(req.body.dateId)
+    // console.log(req.body.exerciseId)
     const filterWorkout = workoutData.filter((currentDate) => {
         return currentDate.id === req.body.dateId;
     });
-    console.log(filterWorkout)
+    // console.log(filterWorkout)
     const filterExercise = filterWorkout[0].workout.filter((currentExercise) => {
         return currentExercise.id === req.body.exerciseId;
     });
-    console.log(filterExercise)
+    console.log("filterExercise:", filterExercise)
     if (filterWorkout) {
         const newSet =
         {
@@ -175,7 +146,7 @@ router.post("/addset", (req, res) => {
                 })
             }
         })
-        console.log(workoutData)
+        // console.log(workoutData)
         fs.writeFileSync("./data/workout.json", JSON.stringify(workoutData));
         return res.send(200);
     }
