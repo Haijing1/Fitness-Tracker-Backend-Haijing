@@ -31,20 +31,20 @@ router.get("/:date", (req, res) => {
     return res.json(foundDate);
 });
 
-router.get("/exercise", (req, res) => {
-    const workoutBuffer = fs.readFileSync("./data/workout.json");
-    const workoutData = JSON.parse(workoutBuffer);
-    // console.log(req.body.dateId)
-    // console.log(req.body.exerciseId)
-    const filterWorkout = workoutData.filter((currentDate) => {
-        return currentDate.id === req.body.dateId;
-    });
-    // console.log(filterWorkout)
-    const filterExercise = filterWorkout[0].workout.filter((currentExercise) => {
-        return currentExercise.id === req.body.exerciseId;
-    });
-    // filterExercise[0].exercise
-});
+// router.get("/exercise", (req, res) => {
+//     const workoutBuffer = fs.readFileSync("./data/workout.json");
+//     const workoutData = JSON.parse(workoutBuffer);
+//     // console.log(req.body.dateId)
+//     // console.log(req.body.exerciseId)
+//     const filterWorkout = workoutData.filter((currentDate) => {
+//         return currentDate.id === req.body.dateId;
+//     });
+//     // console.log(filterWorkout)
+//     const filterExercise = filterWorkout[0].workout.filter((currentExercise) => {
+//         return currentExercise.id === req.body.exerciseId;
+//     });
+//     // filterExercise[0].exercise
+// });
 
 router.post("/", (req, res) => {
     const newExercise = {

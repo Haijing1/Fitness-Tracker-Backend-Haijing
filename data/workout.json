@@ -21,49 +21,42 @@
         ]
     },
     {
-        "id": "421149ba-fbc3-4a44-b643-4a5e57f064e7",
-        "timeStamp": "2024-08-16T23:54:47.817Z",
+        "id": "b0ab0135-b1bd-48a4-a6e3-178d8616eccb",
+        "timeStamp": "2024-08-17T02:13:45.571Z",
         "date": "16-8-2024",
         "workout": [
             {
-                "id": "c5f6961f-1f6c-4465-8a44-0f799a7f5eb1",
+                "id": "2d14289a-1ad9-43ac-bc68-b986d22423a5",
                 "exercise": "Pull up",
                 "sets": [
                     {
-                        "id": "5ce60d44-4b99-49df-b18f-5c18d6d8bb87",
+                        "id": "d091d1c4-36e3-4abb-88c2-f813bccb4f70",
                         "setNumber": "1",
                         "reps": "20",
                         "weight": "40",
                         "rest": "20",
                         "note": ""
-                    },
-                    {
-                        "id": "6d760f04-e140-4e1c-afd2-d0e44994b31f",
-                        "setNumber": "2",
-                        "reps": "40",
-                        "weight": "40",
-                        "rest": "40",
-                        "note": ""
                     }
                 ]
-            }
-        ]
-    },
-    {
-        "id": "b2390eb5-544f-47ad-b70b-701e67a97975",
-        "timeStamp": "2024-08-16T23:55:11.388Z",
-        "date": "16-8-2024",
-        "workout": [
+            },
             {
-                "id": "54c64071-6143-43c9-96da-f51e59ee42fb",
-                "exercise": "Rolling",
+                "id": "a35463d9-0e9d-4cd5-96ae-b08cc07559cc",
+                "exercise": "Chest press",
                 "sets": [
                     {
-                        "id": "d0145d2f-2710-4b51-82ba-335bcf2851d9",
+                        "id": "ab94de2a-184c-4d22-8536-7b04df156292",
                         "setNumber": "1",
                         "reps": "40",
                         "weight": "40",
                         "rest": "40",
+                        "note": ""
+                    },
+                    {
+                        "id": "72c380a6-46d3-407d-bc5e-132579b81286",
+                        "setNumber": "2",
+                        "reps": "10",
+                        "weight": "10",
+                        "rest": "10",
                         "note": ""
                     }
                 ]
