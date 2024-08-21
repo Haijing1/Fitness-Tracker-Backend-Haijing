@@ -1,0 +1,42 @@
+[
+    {
+        "exercise": "Pull up",
+        "date_id": 1
+    },
+    {
+        "exercise": "Pull up",
+        "date_id": 2
+    },
+    {
+        "exercise": "Dumbbell fly",
+        "date_id": 2
+    },
+    {
+        "exercise": "Pull up",
+        "date_id": 3
+    },
+    {
+        "exercise": "Chest press",
+        "date_id": 3
+    },
+    {
+        "exercise": "Pull up",
+        "date_id": 3
+    },
+    {
+        "exercise": "Pull up",
+        "date_id": 3
+    },
+    {
+        "exercise": "Dumbbell fly",
+        "date_id": 4
+    },
+    {
+        "exercise": "Pull up",
+        "date_id": 5
+    },
+    {
+        "exercise": "Chest press",
+        "date_id": 5
+    }
+]
