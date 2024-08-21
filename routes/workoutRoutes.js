@@ -54,24 +54,24 @@ router.post("/:date/workout", (req, res) => {
     const workoutBuffer = fs.readFileSync("./data/workout.json");
     const workoutData = JSON.parse(workoutBuffer);
     const filterData = workoutData.filter((currentData) => {
+        console.log(req.body.date)
         return currentData.date === req.body.date;
     });
-
-    if (filterData) {
-        const newExercise =
-        {
+    console.log(filterData)
+    const newExercise =
+    {
+        id: uuid(),
+        exercise: req.body.exercise,
+        sets: [{
             id: uuid(),
-            exercise: req.body.exercise,
-            sets: [{
-                id: uuid(),
-                setNumber: req.body.setNumber,
-                reps: req.body.reps,
-                weight: req.body.weight,
-                rest: req.body.rest,
-                note: req.body.note
-            }]
-        }
-
+            setNumber: req.body.setNumber,
+            reps: req.body.reps,
+            weight: req.body.weight,
+            rest: req.body.rest,
+            note: req.body.note
+        }]
+    }
+    if (filterData.length > 0) {
         filterData[0].workout.push(newExercise);
 
         workoutData.map((currentWorkout, index) => {
@@ -80,6 +80,29 @@ router.post("/:date/workout", (req, res) => {
 
             }
         })
+        fs.writeFileSync("./data/workout.json", JSON.stringify(workoutData));
+        return res.send(200);
+    } else {
+        const newDate = {
+            id: uuid(),
+            timeStamp: new Date(),
+            date: req.body.date,
+            workout: [
+                {
+                    id: uuid(),
+                    exercise: req.body.exercise,
+                    sets: [
+                        {
+                            id: uuid(),
+                            setNumber: req.body.setNumber,
+                            reps: req.body.reps,
+                            weight: req.body.weight,
+                            rest: req.body.rest,
+                            note: req.body.note
+                        }]
+                }]
+        }
+        workoutData.push(newDate);
         fs.writeFileSync("./data/workout.json", JSON.stringify(workoutData));
         return res.send(200);
     }
