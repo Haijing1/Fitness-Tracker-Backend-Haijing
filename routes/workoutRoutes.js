@@ -3,11 +3,9 @@ const router = express.Router();
 import fs from "fs";
 import { v4 as uuid } from "uuid";
 
-
-const workoutBuffer = fs.readFileSync("./data/workout.json");
-const workoutData = JSON.parse(workoutBuffer);
-
 router.get("/", (req, res) => {
+    const workoutBuffer = fs.readFileSync("./data/workout.json");
+    const workoutData = JSON.parse(workoutBuffer);
     return res.json(workoutData);
 });
 
